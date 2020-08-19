@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var dishRouter=require('./routes/dishRouter');
 var leaderRouter=require('./routes/leaderRouter');
 var promoRouter=require('./routes/promoRouter');
-//var MongoClient=require('./Database/config');
+require('./Database/config');
 var app = express();
 
 // view engine setup

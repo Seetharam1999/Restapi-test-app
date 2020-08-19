@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Dishes=require('../Database/Schema');
+const Dishes=require('../Database/DishSchema');
 const dishRouter = express.Router();
 
 dishRouter.use(bodyParser.json());

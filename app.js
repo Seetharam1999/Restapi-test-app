@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dishes',dishRouter);
 app.use('/leaders',leaderRouter);
-app.use('./promotions',promoRouter);
+app.use('/promotion',promoRouter);
 
 
 

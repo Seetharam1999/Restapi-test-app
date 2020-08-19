@@ -9,9 +9,9 @@ var usersRouter = require('./routes/users');
 var dishRouter=require('./routes/dishRouter');
 var leaderRouter=require('./routes/leaderRouter');
 var promoRouter=require('./routes/promoRouter');
-var MongoClient=require('./Database/config');
+//var MongoClient=require('./Database/config');
 var app = express();
-MongoClient();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

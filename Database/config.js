@@ -1,11 +1,11 @@
-    const mongoose=require('mongoose');
+    // const mongoose=require('mongoose');
  
-    const url="mongodb://127.0.0.1:27017/Confusion";
+    // const url="mongodb://127.0.0.1:27017/Confusion";
 
-    const connect=mongoose.connect(url,{ useUnifiedTopology: true,useNewUrlParser: true  });
-    connect.then((db) => {
-        console.log("Connected correctly to DATABASE server ");
-    }, (err) => { console.log(err); });
+    // const connect=mongoose.connect(url,{ useUnifiedTopology: true,useNewUrlParser: true  });
+    // connect.then((db) => {
+    //     console.log("Connected correctly to DATABASE server ");
+    // }, (err) => { console.log(err); });
     
    
     // Dishes.create({
@@ -95,5 +95,5 @@
     //         .catch((err) => console.log(err));
 
     // })
-    // .catch((err) => console.log(err));
- module.exports=connect;
+//     // .catch((err) => console.log(err));
+//  module.exports=connect;

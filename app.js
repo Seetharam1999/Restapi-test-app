@@ -6,9 +6,12 @@
   var session=require('express-session');
   var FileStore=require('session-file-store')(session);
   const mongoose=require('mongoose');
- 
+  var passport = require('passport');
+  var authenticate = require('./authendicate');
+  
   const url="mongodb://127.0.0.1:27017/Confusion";
 
+//Routes Initialized 
 
   var indexRouter = require('./routes/index');
   var usersRouter = require('./routes/users');
@@ -17,7 +20,7 @@
   var promoRouter=require('./routes/promoRouter');
   var app = express();
 
-
+//Database Initialized and running code
   const connect=mongoose.connect(url,{ useUnifiedTopology: true,useNewUrlParser: true  });
   connect.then((db) => {
       console.log("Connected correctly to DATABASE server ");
@@ -40,29 +43,25 @@
     store:new FileStore()
 
   }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
 
   function auth(req,res,next){
-    console.log(req.session);
-
-    if(!req.session.user){
+    
+    if(!req.user){
       var err=new Error("you are not authenticated");
       res.setHeader("WWW-Authenticate","Basic");
       err.status=401;
       return next(err);
     }
     else{
-      if(req.session.user==='authendicated'){
-        next();
-      }
-      else{
-        var err=new Error("you are not authenticated");
-        err.status=403;
-        return next(err);
-      }
+      next();
     }
   }
+  
   app.use(auth)
 
   app.use(express.static(path.join(__dirname, 'public')));
